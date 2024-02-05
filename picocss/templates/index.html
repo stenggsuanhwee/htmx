@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+    <title>picocss</title>
+</head>
+<body>
+    <main class="container">
+        <h1>Hello, world!</h1>
+    </main>
+    <div class="grid">
+    <input type="number" id="param1" name="param1" value="10"/>
+    <input type="number" id="param2" name="param2" value="20"/>
+    </div>
+<!-- 
+    <button width="30%" hx-get="/calculate" hx-include="[name='param1'],[name='param2']" hx-swap="outerHTML" hx-target="#swapme">
+        Calculate
+      </button> -->
+      <button width="30%" hx-get="/calculate" hx-include="#param1,#param2" hx-swap="outerHTML" hx-target="#swapme">
+        calculate
+      </button>
+      <label for="Name" id="swapme">Name:</label>
+</body>
+</html>
