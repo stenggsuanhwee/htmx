@@ -20,12 +20,13 @@ async def read_item(request: Request, id: str):
     )
 
 @app.get("/calculate", response_class=HTMLResponse)
-async def calculate(request: Request):
+async def calculate(request: Request,param1:int,param2:int):
     print("cal")
     print(request.query_params)
-    print(request.base_url)
+    print(param1,param2)
+    answer=param1+param2
     return templates.TemplateResponse(
-        request=request, name="answer.html", context={}
+        request=request, name="answer.html", context={"answer":answer}
     )
 @app.get("/", response_class=HTMLResponse)
 async def pg1(request: Request):
